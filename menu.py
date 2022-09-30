@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-"""main for analyzer"""
+"""menu options for analyzer"""
 
-import menu
 import analyzer
 
-def main():
+def menu():
     """menu selector"""
-    menu.print_menu()
+    print_menu()
     current_file = "phil.txt"
     current_content = analyzer.file_loader(current_file) #init for workfile
 
@@ -35,7 +34,7 @@ def main():
             current_file = input("Enter filename: ")
             current_content = analyzer.file_loader(current_file)
         elif choice == "menu":
-            menu.print_menu()
+            print_menu()
         elif choice == "active":
             print(current_file)
         elif choice == "print":
@@ -43,6 +42,19 @@ def main():
         elif choice == "q":
             break
 
-if __name__ == "__main__":
-    main()
+def print_menu():
+    """menu printer"""
+    print("""
+    lines| count lines
+    words| count words
+    letters| count letters
+    word_frequency| find 7 most used words
+    letter_frequency| find 7 most used letters
+    all| do everything
+    change| change file
+    menu| displays menu
+    active| show active file
+    print| show content
+    q| quit
     
+    """, end='')
